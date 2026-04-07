@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Real Estate SMM – 30-Day Strategy</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0a;
+    --surface: #111111;
+    --surface2: #181818;
+    --border: #222222;
+    --accent: #e8c547;
+    --accent2: #ff5c3a;
+    --accent3: #3adfb4;
+    --text: #f0f0f0;
+    --muted: #666;
+    --phase1: #3adfb4;
+    --phase2: #e8c547;
+    --phase3: #ff5c3a;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  .header {
+    position: relative;
+    padding: 60px 40px 50px;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(135deg, #0a0a0a 0%, #111 50%, #0d0d0d 100%);
+    overflow: hidden;
+  }
+  .header::before {
+    content: 'SMM';
+    position: absolute;
+    right: -20px;
+    top: -30px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 280px;
+    color: rgba(232,197,71,0.04);
+    pointer-events: none;
+    line-height: 1;
+  }
+  .header-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .header-tag::before { content: ''; display: block; width: 30px; height: 1px; background: var(--accent); }
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(42px, 6vw, 80px);
+    line-height: 0.95;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+  h1 span { color: var(--accent); }
+  .header-sub {
+    color: var(--muted);
+    font-size: 15px;
+    font-weight: 400;
+    max-width: 560px;
+  }
+  .header-badges {
+    display: flex;
+    gap: 10px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1px;
+  }
+  .badge.active { border-color: var(--accent); color: var(--accent); }
+
+  /* NAV */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+  }
+  .nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 16px 20px;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .nav a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* CONTAINER */
+  .container { max-width: 1200px; margin: 0 auto; padding: 60px 40px; }
+  .section { margin-bottom: 80px; }
+
+  /* SECTION HEADER */
+  .section-header {
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    margin-bottom: 36px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 64px;
+    line-height: 1;
+    color: var(--border);
+  }
+  .section-title-block h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    letter-spacing: 1px;
+    line-height: 1;
+  }
+  .section-title-block p {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  /* COMPETITOR ANALYSIS */
+  .competitor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .competitor-card {
+    background: var(--surface);
+    padding: 28px;
+    position: relative;
+  }
+  .competitor-card::before {
+    content: attr(data-rank);
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: var(--border);
+    line-height: 1;
+  }
+  .comp-type {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--accent2);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .comp-name {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .comp-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .comp-stat {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .comp-stat span:first-child { color: var(--muted); }
+  .comp-stat span:last-child { font-weight: 600; color: var(--text); }
+  .comp-gap {
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: rgba(232,197,71,0.07);
+    border-left: 3px solid var(--accent);
+    font-size: 12px;
+    color: var(--accent);
+  }
+  .gap-label { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; opacity: 0.7; }
+
+  /* INSIGHT BOX */
+  .insight-box {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent3);
+    padding: 20px 24px;
+    margin-top: 20px;
+    border-radius: 0 4px 4px 0;
+  }
+  .insight-box h4 {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent3);
+    margin-bottom: 10px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .insight-box ul { list-style: none; padding: 0; }
+  .insight-box li {
+    font-size: 13px;
+    color: var(--muted);
+    padding: 4px 0;
+    padding-left: 16px;
+    position: relative;
+  }
+  .insight-box li::before { content: '→'; position: absolute; left: 0; color: var(--accent3); }
+
+  /* MONTHLY OVERVIEW */
+  .month-overview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 40px;
+  }
+  .month-stat {
+    background: var(--surface);
+    padding: 32px 28px;
+    text-align: center;
+  }
+  .month-stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 64px;
+    line-height: 1;
+    color: var(--accent);
+  }
+  .month-stat-label {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 8px;
+  }
+  .month-stat-sub {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* 30-DAY CALENDAR */
+  .week-block {
+    margin-bottom: 40px;
+    border: 1px solid var(--border);
+  }
+  .week-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    background: var(--surface2);
+    border-bottom: 1px solid var(--border);
+  }
+  .week-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+  }
+  .week-phase {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 2px;
+  }
+  .phase-organic { background: rgba(58,223,180,0.1); color: var(--phase1); border: 1px solid rgba(58,223,180,0.3); }
+  .phase-test { background: rgba(232,197,71,0.1); color: var(--phase2); border: 1px solid rgba(232,197,71,0.3); }
+  .phase-scale { background: rgba(255,92,58,0.1); color: var(--phase3); border: 1px solid rgba(255,92,58,0.3); }
+
+  .day-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    background: var(--border);
+  }
+  .day-cell {
+    background: var(--surface);
+    padding: 16px 14px;
+    min-height: 140px;
+    position: relative;
+  }
+  .day-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--border);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .day-items { display: flex; flex-direction: column; gap: 4px; }
+  .day-item {
+    font-size: 10px;
+    padding: 3px 6px;
+    border-radius: 2px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .tag-reel { background: rgba(255,92,58,0.15); color: #ff8c6e; border: 1px solid rgba(255,92,58,0.2); }
+  .tag-carousel { background: rgba(232,197,71,0.12); color: #e8c547; border: 1px solid rgba(232,197,71,0.2); }
+  .tag-story { background: rgba(58,223,180,0.1); color: #3adfb4; border: 1px solid rgba(58,223,180,0.15); }
+  .tag-ad { background: rgba(180,100,255,0.12); color: #c080ff; border: 1px solid rgba(180,100,255,0.25); }
+  .tag-prep { background: rgba(255,255,255,0.05); color: var(--muted); border: 1px solid var(--border); }
+
+  /* CONTENT STRUCTURE */
+  .content-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+  .content-type-card {
+    background: var(--surface);
+    padding: 28px;
+  }
+  .ct-icon {
+    font-size: 28px;
+    margin-bottom: 14px;
+  }
+  .ct-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .ct-goal {
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'JetBrains Mono', monospace;
+    margin-bottom: 16px;
+  }
+  .ct-examples { list-style: none; padding: 0; }
+  .ct-examples li {
+    font-size: 12px;
+    color: var(--muted);
+    padding: 5px 0;
+    border-bottom: 1px solid var(--border);
+    padding-left: 14px;
+    position: relative;
+  }
+  .ct-examples li::before { content: '›'; position: absolute; left: 0; color: var(--accent); font-size: 14px; line-height: 1.4; }
+
+  /* VIDEO FORMULA */
+  .formula-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .formula-step {
+    background: var(--surface);
+    padding: 28px;
+    position: relative;
+  }
+  .formula-step::after {
+    content: '→';
+    position: absolute;
+    right: -14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 20px;
+    z-index: 2;
+  }
+  .formula-step:last-child::after { display: none; }
+  .fs-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 10px;
+  }
+  .fs-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+  }
+  .fs-time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+  .fs-list { list-style: none; padding: 0; }
+  .fs-list li {
+    font-size: 12px;
+    color: var(--muted);
+    padding: 4px 0;
+    padding-left: 14px;
+    position: relative;
+  }
+  .fs-list li::before { content: '·'; position: absolute; left: 4px; color: var(--accent); }
+
+  /* ADS STRATEGY */
+  .ads-phases {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+  .ads-phase {
+    background: var(--surface);
+    padding: 32px;
+  }
+  .ads-phase-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .ads-phase-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+  }
+  .budget-bar-wrap { margin-top: 20px; }
+  .budget-bar-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    margin-bottom: 6px;
+  }
+  .budget-bar-label span:first-child { color: var(--muted); }
+  .budget-bar-label span:last-child { color: var(--text); font-weight: 600; font-family: 'JetBrains Mono', monospace; }
+  .budget-bar {
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+  .budget-bar-fill { height: 100%; border-radius: 2px; transition: width 1s ease; }
+
+  /* ADS TIMELINE */
+  .ads-timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .ads-tl-step {
+    background: var(--surface);
+    padding: 24px 20px;
+  }
+  .tl-day {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .tl-action {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .tl-desc { font-size: 12px; color: var(--muted); }
+
+  /* FUNNEL */
+  .funnel {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .funnel-step {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 18px 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-bottom: none;
+    position: relative;
+    transition: background 0.2s;
+  }
+  .funnel-step:last-child { border-bottom: 1px solid var(--border); }
+  .funnel-step:hover { background: var(--surface2); }
+  .funnel-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    color: var(--accent);
+    line-height: 1;
+    min-width: 40px;
+  }
+  .funnel-content { flex: 1; }
+  .funnel-title { font-size: 15px; font-weight: 600; }
+  .funnel-desc { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .funnel-action {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    padding: 4px 10px;
+    border: 1px solid rgba(232,197,71,0.3);
+    border-radius: 2px;
+    letter-spacing: 1px;
+  }
+
+  /* DAILY ROUTINE */
+  .routine-timeline {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 0;
+  }
+  .rt-time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    padding: 16px 0;
+    border-right: 1px solid var(--border);
+    padding-right: 16px;
+    text-align: right;
+  }
+  .rt-task {
+    padding: 14px 0 14px 24px;
+    border-bottom: 1px solid var(--border);
+    margin-left: 1px;
+    position: relative;
+  }
+  .rt-task::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 22px;
+    width: 9px;
+    height: 9px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+  .rt-task-title { font-size: 14px; font-weight: 600; }
+  .rt-task-desc { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  /* MISTAKES */
+  .mistakes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .mistake-card {
+    background: var(--surface);
+    padding: 24px;
+    border-left: 3px solid rgba(255,92,58,0.5);
+  }
+  .mistake-x {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 40px;
+    color: var(--accent2);
+    opacity: 0.4;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .mistake-title { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+  .mistake-desc { font-size: 12px; color: var(--muted); }
+
+  /* POSTING PREP SYSTEM */
+  .prep-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--border);
+  }
+  .prep-table th {
+    background: var(--surface2);
+    padding: 14px 20px;
+    text-align: left;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+    border-bottom: 1px solid var(--border);
+  }
+  .prep-table td {
+    padding: 14px 20px;
+    font-size: 13px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .prep-table tr:last-child td { border-bottom: none; }
+  .prep-table tr:nth-child(even) td { background: rgba(255,255,255,0.01); }
+  .prep-day { font-weight: 700; font-family: 'JetBrains Mono', monospace; color: var(--accent); }
+
+  /* STORY CONTENT */
+  .story-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .story-card {
+    background: var(--surface);
+    padding: 20px 16px;
+    text-align: center;
+  }
+  .story-icon { font-size: 22px; margin-bottom: 10px; }
+  .story-type {
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+  .story-example { font-size: 10px; color: var(--muted); line-height: 1.5; }
+
+  /* KPI */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .kpi-card {
+    background: var(--surface);
+    padding: 24px 20px;
+    text-align: center;
+  }
+  .kpi-val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    line-height: 1;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .kpi-label { font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; }
+
+  /* FOOTER */
+  .footer {
+    border-top: 1px solid var(--border);
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: gap;
+  }
+  .footer-formula {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .footer-formula span { color: var(--accent); font-weight: 600; }
+
+  @media(max-width: 768px) {
+    .container { padding: 40px 20px; }
+    .header { padding: 40px 20px 36px; }
+    .nav { padding: 0 20px; }
+    .day-grid { grid-template-columns: repeat(7, 1fr); }
+    .day-cell { padding: 8px 6px; min-height: 90px; }
+    .day-num { font-size: 18px; }
+    .day-item { font-size: 8px; padding: 2px 4px; }
+    .month-overview { grid-template-columns: 1fr; }
+    .formula-row { grid-template-columns: 1fr; }
+    .formula-step::after { display: none; }
+    .ads-phases { grid-template-columns: 1fr; }
+    .ads-timeline { grid-template-columns: repeat(2, 1fr); }
+    .story-grid { grid-template-columns: repeat(3, 1fr); }
+    .footer { flex-direction: column; gap: 16px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-tag">Digital Marketing Strategy</div>
+  <h1>Real Estate <span>SMM</span><br>30-Day Playbook</h1>
+  <p class="header-sub">Complete Instagram growth system — from page setup to lead generation. Tamil Nadu real estate market focus.</p>
+  <div class="header-badges">
+    <div class="badge active">📍 Chennai / Ponneri / Chengalpattu</div>
+    <div class="badge">🎬 Instagram + Meta Ads</div>
+    <div class="badge">📅 30-Day System</div>
+    <div class="badge">💰 ₹300–₹1000/day Budget</div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#competitors">Competitors</a>
+  <a href="#monthly">Monthly Plan</a>
+  <a href="#calendar">30-Day Calendar</a>
+  <a href="#content">Content</a>
+  <a href="#ads">Ads</a>
+  <a href="#funnel">Funnel</a>
+  <a href="#routine">Routine</a>
+  <a href="#mistakes">Mistakes</a>
+</nav>
+
+<div class="container">
+
+  <!-- ============================
+       SECTION 0: COMPETITOR ANALYSIS
+       ============================ -->
+  <div class="section" id="competitors">
+    <div class="section-header">
+      <div class="section-num">00</div>
+      <div class="section-title-block">
+        <h2>Competitor Analysis</h2>
+        <p>Understand the market before you post anything</p>
+      </div>
+    </div>
+
+    <div class="competitor-grid">
+      <div class="competitor-card" data-rank="01">
+        <div class="comp-type">Big Builders</div>
+        <div class="comp-name">Casagrand / Provident / TVS Housing</div>
+        <div class="comp-stats">
+          <div class="comp-stat"><span>Followers</span><span>50K–200K</span></div>
+          <div class="comp-stat"><span>Posting Freq.</span><span>1–2 / day</span></div>
+          <div class="comp-stat"><span>Ad Budget</span><span>₹50K+/day</span></div>
+          <div class="comp-stat"><span>Content Type</span><span>Polished, branded</span></div>
+          <div class="comp-stat"><span>Weakness</span><span>Low authenticity</span></div>
+        </div>
+        <div class="comp-gap">
+          <div class="gap-label">Your Opportunity</div>
+          They feel corporate. You can win with raw, local, authentic videos. Show real sites, real roads, real prices.
+        </div>
+      </div>
+
+      <div class="competitor-card" data-rank="02">
+        <div class="comp-type">Local Agents</div>
+        <div class="comp-name">Area-Based Brokers (Ponneri, Thiruvallur)</div>
+        <div class="comp-stats">
+          <div class="comp-stat"><span>Followers</span><span>500–10K</span></div>
+          <div class="comp-stat"><span>Posting Freq.</span><span>Random</span></div>
+          <div class="comp-stat"><span>Ad Budget</span><span>₹0–₹300/day</span></div>
+          <div class="comp-stat"><span>Content Type</span><span>WhatsApp screenshots</span></div>
+          <div class="comp-stat"><span>Weakness</span><span>No strategy, no editing</span></div>
+        </div>
+        <div class="comp-gap">
+          <div class="gap-label">Your Opportunity</div>
+          They post randomly with no hook, no CTA, no story. Beat them with consistent reels + education content.
+        </div>
+      </div>
+
+      <div class="competitor-card" data-rank="03">
+        <div class="comp-type">Plot Marketers</div>
+        <div class="comp-name">DTCP Plot Sellers (Chennai outskirts)</div>
+        <div class="comp-stats">
+          <div class="comp-stat"><span>Followers</span><span>2K–30K</span></div>
+          <div class="comp-stat"><span>Posting Freq.</span><span>3–5/week</span></div>
+          <div class="comp-stat"><span>Ad Budget</span><span>₹500–₹2K/day</span></div>
+          <div class="comp-stat"><span>Content Type</span><span>Sales-only reels</span></div>
+          <div class="comp-stat"><span>Weakness</span><span>No education, no trust</span></div>
+        </div>
+        <div class="comp-gap">
+          <div class="gap-label">Your Opportunity</div>
+          100% sales content = low trust. Mix in education (DTCP, Patta, Registration process) to build authority.
+        </div>
+      </div>
+    </div>
+
+    <div class="insight-box">
+      <h4>🎯 Key Insights — Where You Win</h4>
+      <ul>
+        <li>No competitor consistently does education + location + showcase + viral content mix in one week</li>
+        <li>Drone footage and road-access walkthrough videos get 3–5x more saves than static image posts</li>
+        <li>Tamil-language hooks ("10 lakhs la plot?") outperform English hooks in this market by 40–60% engagement</li>
+        <li>Most local agents have zero WhatsApp link in bio — your funnel (Reel → WhatsApp → Close) is already an edge</li>
+        <li>Response time under 5 minutes = 3x higher conversion vs responding after hours</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- ============================
+       SECTION 1: MONTHLY TARGETS
+       ============================ -->
+  <div class="section" id="monthly">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <div class="section-title-block">
+        <h2>Monthly Content Targets</h2>
+        <p>What you commit to producing every 30 days</p>
+      </div>
+    </div>
+
+    <div class="month-overview">
+      <div class="month-stat">
+        <div class="month-stat-num">20</div>
+        <div class="month-stat-label">Reels / Videos</div>
+        <div class="month-stat-sub">5 per week × 4 weeks</div>
+      </div>
+      <div class="month-stat">
+        <div class="month-stat-num">8</div>
+        <div class="month-stat-label">Carousel Posts</div>
+        <div class="month-stat-sub">2 per week × 4 weeks</div>
+      </div>
+      <div class="month-stat">
+        <div class="month-stat-num">150+</div>
+        <div class="month-stat-label">Stories</div>
+        <div class="month-stat-sub">Min. 5 per day daily</div>
+      </div>
+    </div>
+
+    <div class="insight-box">
+      <h4>📐 Weekly Breakdown</h4>
+      <ul>
+        <li>Monday: Education Reel + Carousel Post 1</li>
+        <li>Tuesday: Location/Growth Reel</li>
+        <li>Wednesday: Property Showcase Reel + Carousel Post 2</li>
+        <li>Thursday: Property Showcase Reel #2</li>
+        <li>Friday: Viral/Hook Reel</li>
+        <li>Everyday: 5–10 Stories (no exception)</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- ============================
+       SECTION 2: 30-DAY CALENDAR
+       ============================ -->
+  <div class="section" id="calendar">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <div class="section-title-block">
+        <h2>30-Day Content Calendar</h2>
+        <p>Every day is planned. No guessing, no delay.</p>
+      </div>
+    </div>
+
+    <!-- WEEK 1 -->
+    <div class="week-block">
+      <div class="week-header">
+        <div class="week-title">WEEK 1 — Days 1–7 · Build & Test</div>
+        <div class="week-phase phase-organic">Organic Phase — No Ads Yet</div>
+      </div>
+      <div class="day-grid">
+        <div class="day-cell">
+          <div class="day-num">1</div>
+          <div class="day-items">
+            <div class="day-item tag-prep">PREP DAY</div>
+            <div class="day-item tag-prep">Page setup</div>
+            <div class="day-item tag-prep">Bio + link</div>
+            <div class="day-item tag-story">5 Stories</div>
+          </div>
+        </div>
+        <div class="day-cell">
+          <div class="day-num">2</div>
+          <div class="day-items">
+            <div class="day-item tag-reel">Education Reel</div>
+            <div class="day-item tag-reel">"DTCP vs CMDA"</div>
+            <div class="day-item tag-story">5+ Stories</div>
+            <div class="day-item tag-prep">Post 8:30AM</div>
+          </div>
+        </div>
+        <div class="day-cell">
+          <div class="day-num">3</div>
+          <div class="day-items">
+            <div class="day-item tag-reel">Location Reel</div>
+            <div class="day-item tag-reel">"Why Ponneri?"</div>
+            <div class="day-item tag-story">5+ Stories</div>
+            <div class="day-item tag-prep">Post 7 PM</div>
+          </div>
+        </div>
+        <div class="day-cell">
+          <div class="day-num">4</div>
+          <div class="day-items">
+            <div class="day-item tag-reel">Showcase #1</div>
+            <div class="day-item tag-reel">Site walkthrough</div>
+            <div class="day-item tag-carousel">Carousel #1</div>
+            <div class="day-item tag-story">5+ Stories</div>
+          </div>
+        </div>
+        <div class="day-cell">
+          <div class="day-num">5</div>
+          <div class="day-items">
+            <div class="day-item tag-reel">Showcase #2</div>
+            <div class="day-item tag-reel">Drone view</div>
+            <div class="day-item tag-story">5+ Stories</div>
+            <div class="day-item tag-prep">Post 7 PM</div>
+          </div>
+        </div>
+        <div class="day-cell">
+          <div class="day-num">6</div>
+          <div class="day-items">
+            <div class="day-item tag-reel">Viral Hook</div>
+            <div class="day-item tag-reel">"10L la plot?😳"</div>
+            <div class="day-item tag-carousel">Carousel #2</div>
+            <div class="day-item tag-story">5+ Stories</div>
+          </div>
+        </div>
+        <div class="day-cell">
+          <div class="day-num">7</div>
+          <div class="day-items">
+            <div class="day-item tag-prep">PREP DAY</div>
+            <div class="day-item tag-prep">Film Week 2</div>
+            <div class="day-item tag-prep">Check analytics</div>
+            <div class="day-item tag-story">5+ Stories</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEK 2 -->
+    <div class="week-block">
+      <div class="week-header">
+        <div class="week-title">WEEK 2 — Days 8–14 · Identify Winners</div>
+        <div class="week-phase phase-test">Identify Best Reel — Prepare for Ads</div>
+      </div>
+      <div class="day-grid">
+        <div class="day-cell">
+          <div class="day-num">8</div>
+          <div class="day-items">
+            <div class="day-item tag-reel">Education Reel</div>
+            <div class="day-item tag-reel">"Patta land enna?"</div>
+            <div class="day-item tag-story">5+ Stories</div>
+          </div>
+        </div>
+        <div class="day-cell">
+          <div class="day-num">9</div>
+          <div class="day-items">
+            <div class="day-item tag-reel">Location Reel</div>
+            <div class="day-item tag-reel">"Chengalpattu 🚀"</div>
+            <div class="day-item tag-story">5+ Stories</div>
+          </div>
+        </div>
+        <div class="day-cell">
+          <div class="day-num">10</div>
+          <div class="day-items">
+            <div class="day-item tag-reel">Showcase #1</div>
+            <div class="day-item tag-reel">Road access</div>
+            <div class="day-item tag-carousel">Carousel #3</div>
+            <div class="day-item tag-story">5+ Stories</div>
+          </div>
+        </div>
+        <div class="day-cell">
+          <div class="day-num">11</div>
+          <div class="day-items">
+            <div class="day-item tag-reel">Showcase #2</div>
+            <div class="day-item tag-reel">EB + Water access</div>
+            <div class="day-item tag-story">5+ Stories</div>
+          </div>
+        </div>
+        <div class="day-cell">
+          <div class="day-num">12</div>
+          <div class="day-items">
+            <div class="day-item tag-reel">Viral Hook</div>
+            <div class="day-item tag-reel">"Middle class invest"</div>
+            <div class="day-item tag-carousel">Carousel #4</div>
+            <div class="day-item tag-story">5+ Stories</div>
+          </div>
+        </div>
+        <div class="day-cell">
+          <div class="day-num">13</div>
+          <div class="day-items">
+            <div class="day-item tag-prep">ANALYTICS</div>
+            <div class="day-item tag-prep">Find winner reel</div>
+            <div class="day-item tag-prep">5K+ views?</div>
+            <div class="day-item tag-story">5+ Stories</div>
+          </div>
+        </div>
+        <div class="day-cell">
+          <div class="day-num">14</div>
+          <div class="day-items">
+            <div class="day-item tag-prep">PREP DAY</div>
+            <div class="day-item tag-prep">Film Week 3</div>
+            <div class="day-item tag-prep">Set up Ads Mgr</div>
+            <div class="day-item tag-story">5+ Stories</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEK 3 -->
+    <div class="week-block">
+      <div class="week-header">
+        <div class="week-title">WEEK 3 — Days 15–21 · Launch Ads</div>
+        <div class="week-phase phase-scale">🚀 Meta Ads Start — ₹300/day Testing</div>
+      </div>
+      <div class="day-grid">
+        <div class="day-cell">
+          <div class="day-num">15</div>
+          <div class="day-items">
+            <div class="day-item tag-ad">🚀 AD LAUNCH</div>
+            <div class="day-item tag-ad">₹300/day start</div>
+            <div class="day-item tag-reel">Education Reel</div>
+            <div class="day-item tag-story">5+ Stories</div>
+          </div>
+        </div>
+        <div class="day-cell">
+          <div class="day-num">16</div>
+          <div class="day-items">
+            <div class="day-item tag-ad">Ad Running</div>
+            <div class="day-item tag-reel">Location Reel</div>
+            <div class="day-item tag-story">5+ Stories</div>
+            <div class="day-item tag-prep">Reply DMs fast</div>
+          </div>
+        </div>
+        <div class="day-cell">
+          <div class="day-num">17</div>
+          <div class="day-items">
+            <div class="day-item tag-ad">Ad Running</div>
+            <div class="day-item tag-reel">Showcase #1</div>
+            <div class="day-item tag-carousel">Carousel #5</div>
+            <div class="day-item tag-story">5+ Stories</div>
+          </div>
+        </div>
+        <div class="day-cell">
+          <div class="day-num">18</div>
+          <div class="day-items">
+            <div class="day-item tag-ad">Check CPL</div>
+            <div class="day-item tag-reel">Showcase #2</div>
+            <div class="day-item tag-story">5+ Stories</div>
+          </div>
+        </div>
+        <div class="day-cell">
+          <div class="day-num">19</div>
+          <div class="day-items">
+            <div class="day-item tag-ad">Ad Running</div>
+            <div class="day-item tag-reel">Viral Hook</div>
+            <div class="day-item tag-carousel">Carousel #6</div>
+            <div class="day-item tag-story">5+ Stories</div>
+          </div>
+        </div>
+        <div class="day-cell">
+          <div class="day-num">20</div>
+          <div class="day-items">
+            <div class="day-item tag-ad">Ad Check</div>
+            <div class="day-item tag-prep">Scale? ₹500?</div>
+            <div class="day-item tag-story">5+ Stories</div>
+            <div class="day-item tag-prep">Site visits book</div>
+          </div>
+        </div>
+        <div class="day-cell">
+          <div class="day-num">21</div>
+          <div class="day-items">
+            <div class="day-item tag-prep">PREP DAY</div>
+            <div class="day-item tag-prep">Film Week 4</div>
+            <div class="day-item tag-ad">Ad Review</div>
+            <div class="day-item tag-story">5+ Stories</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEK 4 -->
+    <div class="week-block">
+      <div class="week-header">
+        <div class="week-title">WEEK 4 — Days 22–30 · Scale & Close</div>
+        <div class="week-phase phase-scale">💰 Scale to ₹500–₹1000/day — Close Leads</div>
+      </div>
+      <div class="day-grid">
+        <div class="day-cell">
+          <div class="day-num">22</div>
+          <div class="day-items">
+            <div class="day-item tag-ad">Scale Ad ₹500</div>
+            <div class="day-item tag-reel">Education Reel</div>
+            <div class="day-item tag-story">5+ Stories</div>
+          </div>
+        </div>
+        <div class="day-cell">
+          <div class="day-num">23</div>
+          <div class="day-items">
+            <div class="day-item tag-ad">Ad Running</div>
+            <div class="day-item tag-reel">Location Reel</div>
+            <div class="day-item tag-story">5+ Stories</div>
+            <div class="day-item tag-prep">Follow-up calls</div>
+          </div>
+        </div>
+        <div class="day-cell">
+          <div class="day-num">24</div>
+          <div class="day-items">
+            <div class="day-item tag-ad">Ad Running</div>
+            <div class="day-item tag-reel">Showcase #1</div>
+            <div class="day-item tag-carousel">Carousel #7</div>
+            <div class="day-item tag-story">5+ Stories</div>
+          </div>
+        </div>
+        <div class="day-cell">
+          <div class="day-num">25</div>
+          <div class="day-items">
+            <div class="day-item tag-ad">Ad Check</div>
+            <div class="day-item tag-reel">Showcase #2</div>
+            <div class="day-item tag-story">5+ Stories</div>
+            <div class="day-item tag-prep">Site visits</div>
+          </div>
+        </div>
+        <div class="day-cell">
+          <div class="day-num">26</div>
+          <div class="day-items">
+            <div class="day-item tag-ad">Best ad scale</div>
+            <div class="day-item tag-reel">Viral Hook</div>
+            <div class="day-item tag-carousel">Carousel #8</div>
+            <div class="day-item tag-story">5+ Stories</div>
+          </div>
+        </div>
+        <div class="day-cell">
+          <div class="day-num">28</div>
+          <div class="day-items">
+            <div class="day-item tag-ad">Review CPL</div>
+            <div class="day-item tag-prep">Close leads</div>
+            <div class="day-item tag-story">5+ Stories</div>
+            <div class="day-item tag-prep">Month 2 plan</div>
+          </div>
+        </div>
+        <div class="day-cell">
+          <div class="day-num">30</div>
+          <div class="day-items">
+            <div class="day-item tag-prep">REVIEW DAY</div>
+            <div class="day-item tag-prep">Full analytics</div>
+            <div class="day-item tag-prep">Plan Month 2</div>
+            <div class="day-item tag-story">5+ Stories</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LEGEND -->
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;">
+      <span class="day-item tag-reel" style="display:inline-block;">🎬 Reel Post</span>
+      <span class="day-item tag-carousel" style="display:inline-block;">📊 Carousel</span>
+      <span class="day-item tag-story" style="display:inline-block;">📖 Stories (Daily)</span>
+      <span class="day-item tag-ad" style="display:inline-block;">💸 Meta Ads</span>
+      <span class="day-item tag-prep" style="display:inline-block;">⚙️ Prep / Admin</span>
+    </div>
+  </div>
+
+
+  <!-- ============================
+       SECTION 3: CONTENT STRUCTURE
+       ============================ -->
+  <div class="section" id="content">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <div class="section-title-block">
+        <h2>Content Blueprint</h2>
+        <p>What to post, how to post, and what each post must achieve</p>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;margin-bottom:20px;color:var(--muted);">🎬 REEL TYPES — 5 PER WEEK</h3>
+    <div class="content-types">
+      <div class="content-type-card">
+        <div class="ct-icon">📚</div>
+        <div class="ct-title">Education Reel</div>
+        <div class="ct-goal">Goal → Build Trust & Authority</div>
+        <ul class="ct-examples">
+          <li>"DTCP vs CMDA — enna difference?"</li>
+          <li>"Plot vanga mundha check panna 5 things"</li>
+          <li>"Patta land na enna arththam?"</li>
+          <li>"Registration process step by step"</li>
+          <li>"Guideline value vs market value"</li>
+        </ul>
+      </div>
+      <div class="content-type-card">
+        <div class="ct-icon">📍</div>
+        <div class="ct-title">Location Video</div>
+        <div class="ct-goal">Goal → Create Demand & FOMO</div>
+        <ul class="ct-examples">
+          <li>"Why Ponneri is the next big thing 🚀"</li>
+          <li>"Chengalpattu 2025 growth corridor"</li>
+          <li>"Thiruvallur — upcoming IT hub?"</li>
+          <li>"These 3 roads are changing everything"</li>
+          <li>"Before price doubles — invest now"</li>
+        </ul>
+      </div>
+      <div class="content-type-card">
+        <div class="ct-icon">🏡</div>
+        <div class="ct-title">Property Showcase (×2)</div>
+        <div class="ct-goal">Goal → Direct Selling & Inquiries</div>
+        <ul class="ct-examples">
+          <li>Site walkthrough (raw & authentic)</li>
+          <li>Drone view of the plot + surroundings</li>
+          <li>"Blacktop road + EB + water — see it"</li>
+          <li>Show boundary, access road, documents</li>
+          <li>Price reveal at the end with CTA</li>
+        </ul>
+      </div>
+      <div class="content-type-card">
+        <div class="ct-icon">💥</div>
+        <div class="ct-title">Viral / Hook Reel</div>
+        <div class="ct-goal">Goal → Max Reach & New Audience</div>
+        <ul class="ct-examples">
+          <li>"10 lakhs la plot?? 😳 Seriously"</li>
+          <li>"Chennai la cheap land iruka — yes!"</li>
+          <li>"Middle class ku best investment 2025"</li>
+          <li>"5 lakh la land — miss pannadha"</li>
+          <li>"Salary-la plot vaanga mudiyuma? Yes!"</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- VIDEO FORMULA -->
+    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;margin:40px 0 20px;color:var(--muted);">⚡ EVERY REEL MUST FOLLOW THIS FORMULA</h3>
+    <div class="formula-row">
+      <div class="formula-step">
+        <div class="fs-label">Step 01</div>
+        <div class="fs-title">HOOK</div>
+        <div class="fs-time">⏱ First 3 seconds — MOST IMPORTANT</div>
+        <ul class="fs-list">
+          <li>"10 lakhs la plot venuma?"</li>
+          <li>"Idha miss pannina regret pannuveenga"</li>
+          <li>"Chennai la cheap land iruka?"</li>
+          <li>Must create curiosity or shock</li>
+          <li>Text on screen + voice together</li>
+        </ul>
+      </div>
+      <div class="formula-step">
+        <div class="fs-label">Step 02</div>
+        <div class="fs-title">BODY</div>
+        <div class="fs-time">⏱ 4–45 seconds — Deliver Value</div>
+        <ul class="fs-list">
+          <li>Show exact location on map</li>
+          <li>Clear price mention</li>
+          <li>3 key benefits (road, EB, DTCP)</li>
+          <li>Drone or walkthrough footage</li>
+          <li>Keep it under 60 sec total</li>
+        </ul>
+      </div>
+      <div class="formula-step">
+        <div class="fs-label">Step 03</div>
+        <div class="fs-title">CTA</div>
+        <div class="fs-time">⏱ Last 5 seconds — Force Action</div>
+        <ul class="fs-list">
+          <li>"DM the word PLOT"</li>
+          <li>"WhatsApp link bio-la iruku"</li>
+          <li>"Call pannunga — 24hrs reply"</li>
+          <li>Show your number on screen</li>
+          <li>One action only — don't confuse</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CAROUSEL -->
+    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;margin:40px 0 20px;color:var(--muted);">📊 CAROUSEL POST IDEAS — 2 PER WEEK</h3>
+    <div class="content-types">
+      <div class="content-type-card">
+        <div class="ct-icon">🔢</div>
+        <div class="ct-title">List Carousel</div>
+        <div class="ct-goal">Goal → Saves & Shares</div>
+        <ul class="ct-examples">
+          <li>"5 things to check before buying a plot"</li>
+          <li>"7 documents you MUST verify"</li>
+          <li>"Top 3 areas to invest near Chennai"</li>
+          <li>"Plot buying mistakes — avoid these"</li>
+        </ul>
+      </div>
+      <div class="content-type-card">
+        <div class="ct-icon">💰</div>
+        <div class="ct-title">Price / Comparison Carousel</div>
+        <div class="ct-goal">Goal → Decision-making help</div>
+        <ul class="ct-examples">
+          <li>"Area-wise price comparison (2024 vs 2025)"</li>
+          <li>"Which area gives best ROI?"</li>
+          <li>"Flat vs Plot — which is better?"</li>
+          <li>"Budget ₹10L — what can you buy?"</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- STORIES -->
+    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;margin:40px 0 20px;color:var(--muted);">📖 DAILY STORIES — MINIMUM 5/DAY</h3>
+    <div class="story-grid">
+      <div class="story-card">
+        <div class="story-icon">📊</div>
+        <div class="story-type">Poll / Quiz</div>
+        <div class="story-example">"Would you invest in Ponneri?" Yes / No</div>
+      </div>
+      <div class="story-card">
+        <div class="story-icon">🏡</div>
+        <div class="story-type">Behind the Scenes</div>
+        <div class="story-example">Show you at the site, taking measurements</div>
+      </div>
+      <div class="story-card">
+        <div class="story-icon">💬</div>
+        <div class="story-type">Testimonial</div>
+        <div class="story-example">Screenshot of happy buyer message</div>
+      </div>
+      <div class="story-card">
+        <div class="story-icon">🔥</div>
+        <div class="story-type">Urgency</div>
+        <div class="story-example">"Only 3 plots left at this price"</div>
+      </div>
+      <div class="story-card">
+        <div class="story-icon">📍</div>
+        <div class="story-type">Location Update</div>
+        <div class="story-example">Quick map + "New project launching soon"</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================
+       SECTION 4: ADS STRATEGY
+       ============================ -->
+  <div class="section" id="ads">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <div class="section-title-block">
+        <h2>Ads Strategy</h2>
+        <p>When to run, how much to spend, and how to scale</p>
+      </div>
+    </div>
+
+    <div class="ads-phases">
+      <div class="ads-phase">
+        <div class="ads-phase-label" style="color:var(--phase1);">Phase 1</div>
+        <div class="ads-phase-title">Organic Testing</div>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:20px;">Post your reel organically first. Wait 2–3 days. Let Instagram push it naturally. This tells you if the content is strong BEFORE you spend money.</p>
+        <div style="font-size:13px;margin-bottom:8px;font-weight:600;">A reel is a WINNER if it gets:</div>
+        <ul style="list-style:none;padding:0;">
+          <li style="font-size:12px;color:var(--muted);padding:4px 0 4px 14px;position:relative;border-bottom:1px solid var(--border);"><span style="position:absolute;left:0;color:var(--phase1);">✓</span> 5,000+ views organically</li>
+          <li style="font-size:12px;color:var(--muted);padding:4px 0 4px 14px;position:relative;border-bottom:1px solid var(--border);"><span style="position:absolute;left:0;color:var(--phase1);">✓</span> High saves and shares (not just likes)</li>
+          <li style="font-size:12px;color:var(--muted);padding:4px 0 4px 14px;position:relative;border-bottom:1px solid var(--border);"><span style="position:absolute;left:0;color:var(--phase1);">✓</span> Comments asking "price?" or "location?"</li>
+          <li style="font-size:12px;color:var(--muted);padding:4px 0 4px 14px;position:relative;"><span style="position:absolute;left:0;color:var(--phase1);">✓</span> DMs and WhatsApp messages received</li>
+        </ul>
+        <div style="margin-top:16px;padding:12px 16px;background:rgba(58,223,180,0.07);border-left:3px solid var(--phase1);font-size:12px;color:var(--phase1);">
+          ❌ If the reel gets less than 1K views — don't run ads on it. Make a new one.
+        </div>
+      </div>
+      <div class="ads-phase">
+        <div class="ads-phase-label" style="color:var(--phase3);">Phase 2</div>
+        <div class="ads-phase-title">Paid Scaling</div>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:20px;">Take the winning reel to Meta Ads Manager. Run it as a paid ad targeting the right audience.</p>
+        <div class="budget-bar-wrap">
+          <div class="budget-bar-label"><span>Testing Budget</span><span>₹300/day × 5–7 days</span></div>
+          <div class="budget-bar"><div class="budget-bar-fill" style="width:30%;background:var(--phase1);"></div></div>
+          <div class="budget-bar-label"><span>Scaling Budget</span><span>₹500/day × 10 days</span></div>
+          <div class="budget-bar"><div class="budget-bar-fill" style="width:50%;background:var(--phase2);"></div></div>
+          <div class="budget-bar-label"><span>Winner Budget</span><span>₹1000/day × ongoing</span></div>
+          <div class="budget-bar"><div class="budget-bar-fill" style="width:100%;background:var(--phase3);"></div></div>
+        </div>
+        <div style="margin-top:16px;font-size:12px;color:var(--muted);">
+          <strong style="color:var(--text);">Target Audience:</strong> Age 25–45 · Tamil Nadu · Interests: Real estate, investment, home buying · Languages: Tamil + English
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;margin:32px 0 20px;color:var(--muted);">📅 ADS TIMELINE — DAY BY DAY (FROM DAY 15)</h3>
+    <div class="ads-timeline">
+      <div class="ads-tl-step">
+        <div class="tl-day">DAY 15–17</div>
+        <div class="tl-action">Launch Ad</div>
+        <div class="tl-desc">₹300/day. Test winner reel. Don't touch the ad for 3 days — let algorithm learn.</div>
+      </div>
+      <div class="ads-tl-step">
+        <div class="tl-day">DAY 18–20</div>
+        <div class="tl-action">Check Results</div>
+        <div class="tl-desc">Is CPL (cost per lead) under ₹150? Good. Above ₹300? Stop, test new creative.</div>
+      </div>
+      <div class="ads-tl-step">
+        <div class="tl-day">DAY 21–25</div>
+        <div class="tl-action">Scale Budget</div>
+        <div class="tl-desc">If winning — increase to ₹500/day. Don't double in one shot. Increase by 30% max.</div>
+      </div>
+      <div class="ads-tl-step">
+        <div class="tl-day">DAY 26–30</div>
+        <div class="tl-action">Best Ad Only</div>
+        <div class="tl-desc">₹1000/day on the single best creative. All leads → WhatsApp → call → site visit.</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================
+       SECTION 5: FUNNEL
+       ============================ -->
+  <div class="section" id="funnel">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <div class="section-title-block">
+        <h2>Lead Conversion Funnel</h2>
+        <p>From reel to closed deal — every step mapped</p>
+      </div>
+    </div>
+    <div class="funnel">
+      <div class="funnel-step">
+        <div class="funnel-num">1</div>
+        <div class="funnel-content">
+          <div class="funnel-title">Reel Gets Seen</div>
+          <div class="funnel-desc">Organic + Paid reach. Hook grabs attention in 3 seconds.</div>
+        </div>
+        <div class="funnel-action">REACH</div>
+      </div>
+      <div class="funnel-step">
+        <div class="funnel-num">2</div>
+        <div class="funnel-content">
+          <div class="funnel-title">User Clicks CTA</div>
+          <div class="funnel-desc">"DM PLOT" or "Click WhatsApp link in bio" — one clear action only.</div>
+        </div>
+        <div class="funnel-action">CLICK</div>
+      </div>
+      <div class="funnel-step">
+        <div class="funnel-num">3</div>
+        <div class="funnel-content">
+          <div class="funnel-title">You Reply Instantly (under 5 min)</div>
+          <div class="funnel-desc">Speed = trust. Slow reply = lost lead. Keep phone notifications on always.</div>
+        </div>
+        <div class="funnel-action">REPLY</div>
+      </div>
+      <div class="funnel-step">
+        <div class="funnel-num">4</div>
+        <div class="funnel-content">
+          <div class="funnel-title">Send Property Details</div>
+          <div class="funnel-desc">Pre-made WhatsApp message: location, price, amenities, photos/video.</div>
+        </div>
+        <div class="funnel-action">QUALIFY</div>
+      </div>
+      <div class="funnel-step">
+        <div class="funnel-num">5</div>
+        <div class="funnel-content">
+          <div class="funnel-title">Phone Call</div>
+          <div class="funnel-desc">Personal touch. Answer questions. Build relationship. Fix site visit.</div>
+        </div>
+        <div class="funnel-action">CONNECT</div>
+      </div>
+      <div class="funnel-step">
+        <div class="funnel-num">6</div>
+        <div class="funnel-content">
+          <div class="funnel-title">Site Visit</div>
+          <div class="funnel-desc">Show the plot in person. Let them see road, EB, boundaries. Bring documents.</div>
+        </div>
+        <div class="funnel-action">VISIT</div>
+      </div>
+      <div class="funnel-step">
+        <div class="funnel-num">7</div>
+        <div class="funnel-content">
+          <div class="funnel-title">CLOSE THE DEAL</div>
+          <div class="funnel-desc">Token advance → registration. Follow up within 24 hrs after visit always.</div>
+        </div>
+        <div class="funnel-action">CLOSE ✓</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================
+       SECTION 6: DAILY ROUTINE
+       ============================ -->
+  <div class="section" id="routine">
+    <div class="section-header">
+      <div class="section-num">06</div>
+      <div class="section-title-block">
+        <h2>Daily Routine</h2>
+        <p>Follow this every single day — no exceptions</p>
+      </div>
+    </div>
+
+    <div class="prep-table-wrap" style="overflow-x:auto;margin-bottom:40px;">
+      <table class="prep-table">
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Task</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="prep-day">8:00 AM</td>
+            <td>Check DMs & Reply</td>
+            <td>Reply all overnight DMs before you do anything else</td>
+          </tr>
+          <tr>
+            <td class="prep-day">8:30 AM</td>
+            <td>Post Reel (if scheduled)</td>
+            <td>Best time for morning post — catches commuters</td>
+          </tr>
+          <tr>
+            <td class="prep-day">9:00 AM</td>
+            <td>Post 2–3 Morning Stories</td>
+            <td>Poll, behind-the-scenes, or property teaser</td>
+          </tr>
+          <tr>
+            <td class="prep-day">12:00 PM</td>
+            <td>Check Analytics</td>
+            <td>Views, saves, comments on recent reel — note the numbers</td>
+          </tr>
+          <tr>
+            <td class="prep-day">2:00 PM</td>
+            <td>Content Creation</td>
+            <td>Film or edit tomorrow's content. Always be 2 days ahead.</td>
+          </tr>
+          <tr>
+            <td class="prep-day">6:30 PM</td>
+            <td>Post Reel (if evening)</td>
+            <td>🔥 BEST TIME — highest engagement 6:30–9 PM</td>
+          </tr>
+          <tr>
+            <td class="prep-day">7:00 PM</td>
+            <td>Post 2–3 Evening Stories</td>
+            <td>Urgency stories, testimonials, price updates</td>
+          </tr>
+          <tr>
+            <td class="prep-day">9:00 PM</td>
+            <td>Final DM Check</td>
+            <td>Reply all messages before sleeping. Never leave a lead cold.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;margin-bottom:20px;color:var(--muted);">📋 WEEKLY CONTENT PREP SYSTEM (NEVER DELAY)</h3>
+    <div class="prep-table-wrap" style="overflow-x:auto;">
+      <table class="prep-table">
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>This Week (Post)</th>
+            <th>Next Week (Prepare)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="prep-day">MON</td>
+            <td>Post Education Reel + Carousel #1</td>
+            <td>Scout location for next week's location reel</td>
+          </tr>
+          <tr>
+            <td class="prep-day">TUE</td>
+            <td>Post Location Reel</td>
+            <td>Film next week's education reel</td>
+          </tr>
+          <tr>
+            <td class="prep-day">WED</td>
+            <td>Post Showcase Reel #1 + Carousel #2</td>
+            <td>Visit site, film next week's showcase footage</td>
+          </tr>
+          <tr>
+            <td class="prep-day">THU</td>
+            <td>Post Showcase Reel #2</td>
+            <td>Edit next week's reels (Education + Location done)</td>
+          </tr>
+          <tr>
+            <td class="prep-day">FRI</td>
+            <td>Post Viral/Hook Reel</td>
+            <td>Script next week's viral reel hook</td>
+          </tr>
+          <tr>
+            <td class="prep-day">SAT</td>
+            <td>Analyze week's performance</td>
+            <td>Film viral reel + design next week's carousels</td>
+          </tr>
+          <tr>
+            <td class="prep-day">SUN</td>
+            <td>Schedule all next week posts in advance</td>
+            <td>Full next week is ready — zero pressure</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <!-- ============================
+       SECTION 7: MISTAKES
+       ============================ -->
+  <div class="section" id="mistakes">
+    <div class="section-header">
+      <div class="section-num">07</div>
+      <div class="section-title-block">
+        <h2>Mistakes to Avoid</h2>
+        <p>These will kill your growth — avoid every single one</p>
+      </div>
+    </div>
+    <div class="mistakes-grid">
+      <div class="mistake-card">
+        <div class="mistake-x">✕</div>
+        <div class="mistake-title">Random Posting</div>
+        <div class="mistake-desc">Posting whenever you feel like it. Instagram rewards consistency. Miss 3 days = algorithm drops you.</div>
+      </div>
+      <div class="mistake-card">
+        <div class="mistake-x">✕</div>
+        <div class="mistake-title">100% Sales Content</div>
+        <div class="mistake-desc">Every post saying "buy this" feels like spam. Mix education (40%) + showcase (40%) + viral (20%).</div>
+      </div>
+      <div class="mistake-card">
+        <div class="mistake-x">✕</div>
+        <div class="mistake-title">No CTA in Reels</div>
+        <div class="mistake-desc">People like the video but don't know what to do next. Always end with ONE clear action.</div>
+      </div>
+      <div class="mistake-card">
+        <div class="mistake-x">✕</div>
+        <div class="mistake-title">Running Ads on Weak Videos</div>
+        <div class="mistake-desc">If a reel gets less than 1K organic views, no amount of money will fix it. Test first, always.</div>
+      </div>
+      <div class="mistake-card">
+        <div class="mistake-x">✕</div>
+        <div class="mistake-title">Slow DM Replies</div>
+        <div class="mistake-desc">Replying after 2–3 hours = cold lead. Leads are hottest in the first 10 minutes. Reply instantly.</div>
+      </div>
+      <div class="mistake-card">
+        <div class="mistake-x">✕</div>
+        <div class="mistake-title">Poor Hook</div>
+        <div class="mistake-desc">If the first 3 seconds are boring, nobody watches. Your hook is 70% of your reel's success.</div>
+      </div>
+    </div>
+
+    <!-- KPIs -->
+    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;margin:40px 0 20px;color:var(--muted);">📊 30-DAY SUCCESS METRICS TO TRACK</h3>
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-val">5K+</div>
+        <div class="kpi-label">Views per winning reel</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val">₹150</div>
+        <div class="kpi-label">Max cost per lead (CPL)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val">5 min</div>
+        <div class="kpi-label">Max DM reply time</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val">30%+</div>
+        <div class="kpi-label">Story view rate</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val">20+</div>
+        <div class="kpi-label">Leads by Day 30</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val">1–2</div>
+        <div class="kpi-label">Closings target Month 1</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div>
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;margin-bottom:6px;">THE WINNING FORMULA</div>
+    <div class="footer-formula">
+      <span>Content (Test)</span> → <span>Identify Winner</span> → <span>Ads (Scale)</span> → <span>Leads</span> → <span>Close</span>
+    </div>
+  </div>
+  <div style="text-align:right;">
+    <div style="font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;">Real Estate SMM Strategy</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--border);">30-Day Playbook v1.0</div>
+  </div>
+</div>
+
+</body>
+</html>
